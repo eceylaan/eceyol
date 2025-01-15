@@ -1,0 +1,174 @@
+.auth {
+  max-width: 1200px;
+  background-color: #f3f4f6;
+  margin-bottom: 80px;
+}
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.loginHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.shoppingIcon {
+  display: flex;
+  margin-top: 80px;
+  align-self: center;
+}
+
+/* Form container */
+.form-container {
+  width: 100%;
+  max-width: 28rem; /* Equivalent to max-w-md */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  gap: 1.5rem; /* Equivalent to space-y-6 */
+}
+
+/* Label */
+.label {
+  display: block;
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  font-weight: 500; /* Equivalent to font-medium */
+  color: #4b5563; /* Equivalent to text-gray-700 */
+}
+
+/* Input container */
+.input-container {
+  position: relative;
+}
+
+/* Input */
+.input {
+  width: 100%;
+  padding: 0.5rem 0.75rem; /* Equivalent to py-2, px-4 */
+  padding-left: 2.5rem; /* Equivalent to pl-10 */
+  padding-right: 1rem; /* Equivalent to pr-4 */
+  border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+  border-color: #f97316; /* Equivalent to focus:border-orange-500 */
+  box-shadow: 0 0 0 2px #f97316; /* Equivalent to focus:ring-2 focus:ring-orange-500 */
+}
+
+/* Icon inside input */
+.input-icon {
+  position: absolute;
+  left: 0.75rem; /* Equivalent to left-3 */
+  top: 50%;
+  transform: translateY(-50%); /* Equivalent to -translate-y-1/2 */
+  color: #9ca3af; /* Equivalent to text-gray-400 */
+  height: 1.25rem; /* Equivalent to h-5 */
+  width: 1.25rem; /* Equivalent to w-5 */
+}
+
+/* Password toggle button */
+.password-toggle {
+  position: absolute;
+  right: 0.75rem; /* Equivalent to right-3 */
+  top: 50%;
+  transform: translateY(-50%); /* Equivalent to -translate-y-1/2 */
+  color: #9ca3af; /* Equivalent to text-gray-400 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.password-toggle:hover {
+  color: #4b5563; /* Equivalent to hover:text-gray-600 */
+}
+
+/* Remember me checkbox */
+.checkbox {
+  height: 1rem; /* Equivalent to h-4 */
+  width: 1rem; /* Equivalent to w-4 */
+  color: #f97316; /* Equivalent to text-orange-600 */
+  border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+  border-radius: 0.25rem; /* Equivalent to rounded */
+}
+
+.checkbox:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px #f97316; /* Equivalent to focus:ring-orange-500 */
+}
+
+/* Link styles */
+.link {
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  font-weight: 500; /* Equivalent to font-medium */
+  color: #f97316; /* Equivalent to text-orange-600 */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #fb923c; /* Equivalent to hover:text-orange-500 */
+}
+
+/* Submit button */
+.button {
+  width: 100%;
+  background-color: #f97316; /* Equivalent to bg-orange-600 */
+  color: #ffffff; /* Equivalent to text-white */
+  padding: 0.5rem 1rem; /* Equivalent to py-2 px-4 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  transition: background-color 0.2s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ea580c; /* Equivalent to hover:bg-orange-700 */
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f97316; /* Equivalent to focus:ring-2 focus:ring-orange-500 */
+  background-color: #ea580c; /* Equivalent to hover:bg-orange-700 */
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Footer text */
+.footer-text {
+  text-align: center;
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  color: #4b5563; /* Equivalent to text-gray-600 */
+}
+
+/* Footer link */
+.footer-link {
+  font-weight: 500; /* Equivalent to font-medium */
+  color: #f97316; /* Equivalent to text-orange-600 */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #fb923c; /* Equivalent to hover:text-orange-500 */
+}

@@ -1,0 +1,149 @@
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.loginHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+/* 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+} */
+
+.form-containerr {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 80px;
+
+  /* max-width: 28rem; Equivalent to max-w-md */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.input-group {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #4b5563;
+}
+
+.input-container {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  fill: #9ca3af;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #f97316;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+}
+
+.password-toggle:hover {
+  color: #374151;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.checkbox-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.link {
+  color: #f97316;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  width: 100%;
+  background-color: #f97316;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ea580c;
+}
+
+.footer {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.footer .link {
+  font-weight: bold;
+}

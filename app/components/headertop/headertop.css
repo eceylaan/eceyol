@@ -1,0 +1,24 @@
+.headerTop {
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerTop ul {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  font-size: 10px;
+
+  li {
+    list-style: none;
+
+    a {
+      text-decoration: none;
+      color: grey;
+    }
+    a:hover {
+      color: rgb(59, 58, 58);
+    }
+  }
+}

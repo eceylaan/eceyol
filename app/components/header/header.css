@@ -1,0 +1,32 @@
+.header {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  align-items: center;
+}
+
+.searchbar input {
+  padding: 10px;
+  background-color: #efefef;
+  color: rgb(67, 67, 67);
+  width: 600px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.login {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+}
+.login:hover {
+  color: orange;
+}
