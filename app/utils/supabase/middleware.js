@@ -24,14 +24,14 @@ export async function updateSession(request) {
   const {
     data: { supabaseUser },
   } = await supabase.auth.getUser();
-  const loggedInUser = {};
-  if (supabaseUser.user_metadata.role === "client") {
-    loggedInUser = await supabase.from("users").select("*").eq("user_id", supabaseUser.id);
-  } else {
-    loggedInUser = await supabase.from("sellers").select("*").eq("user_id", supabaseUser.id);
+  let loggedInUser = {};
+  if (supabaseUser && supabaseUser.user_metadata.role === "client") {
+    // loggedInUser = await supabase.from("users").select("*").eq("user_id", supabaseUser.id);
+  } else if (supabaseUser) {
+    // loggedInUser = await supabase.from("sellers").select("*").eq("user_id", supabaseUser.id);
   }
 
-  const permissionRoutes = [];
+  let permissionRoutes = [];
   if (supabaseUser?.user_metadata.role === "client") {
     permissionRoutes.push("/", "/about");
   } else {
@@ -46,5 +46,5 @@ export async function updateSession(request) {
   //   return NextResponse.redirect(url);
   // }
 
-  return { supabaseResponse, user };
+  return { supabaseResponse };
 }

@@ -2,8 +2,12 @@
 import React, { useEffect, useState } from "react";
 import "../category.css";
 import { createClient } from "@/app/utils/supabase/client";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import AddtoBasketBtn from "@/app/components/addtobasketbtn/addtobasket";
 
 export default function Page({ params }) {
+  const router = useRouter();
   let category = decodeURI(params.category);
   if (category === "Ev %26 Yaşam") category = "Ev & Yaşam";
   const [products, setProducts] = useState([]);
@@ -24,14 +28,24 @@ export default function Page({ params }) {
     }
     fetchProducts();
   }, [category]);
+
+  const handleProductClick = (id) => {
+    router.push(`${category}/${id}`);
+  };
+
   return (
-    <div className="category">
+    <div className="product-page">
       {loading ? (
         <p>Yükleniyor...</p>
       ) : products.length > 0 ? (
         products.map((product) => (
-          <div key={product.id} className="product">
+          <div onClick={() => handleProductClick(product.id)} key={product.id} className="product">
+            <div className="image-container">
+              <Image className="urunImg" width={280} height={200} src={"/assets/beige.jpg"} alt="ürün resmi" />
+            </div>
             <p>{product.product_name}</p>
+            <p>{product.rating}</p>
+            <AddtoBasketBtn />
           </div>
         ))
       ) : (
