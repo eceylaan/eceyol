@@ -53,3 +53,11 @@ export async function signup(formData) {
   revalidatePath("/", "layout");
   redirect("/");
 }
+export async function getUser() {
+  const cookiess = cookies();
+  const supabase = await createClient(cookiess);
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+  return session;
+}

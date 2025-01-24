@@ -1,8 +1,10 @@
 .product-page {
-  padding: 50px;
+  margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
+  padding-inline: 50px;
+  margin-top: 50px;
 }
 .product {
   border: none;
@@ -18,4 +20,72 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+Card container stil .card-container {
+  width: 200px;
+  padding: 1rem; /* İçerik ile kenar arasında boşluk */
+  border-radius: 0.5rem; /* Yuvarlatılmış köşeler */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  background-color: #fff; /* Arka plan beyaz */
+}
+
+/* Skeleton genel stil */
+.skeleton {
+  background-color: #e0e0e0; /* Yükleme sırasında gösterilen gri arka plan */
+  border-radius: 0.375rem; /* Yuvarlatılmış köşeler */
+  animation: skeleton-loading 1.5s infinite ease-in-out; /* Yavaşça kayan animasyon */
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+/* Skeleton içerisindeki öğe (Yükleme için alanlar) */
+.skeleton-image {
+  height: 6rem; /* Görsel alanı için yüksekliği belirle */
+  background-color: #ccc; /* Görselin arka planı için gri */
+  border-radius: 0.375rem; /* Yuvarlatılmış köşeler */
+  margin-bottom: 1rem; /* Altına boşluk bırak */
+}
+
+/* Skeleton metin için stil */
+.skeleton-text {
+  height: 0.75rem; /* Yükseklik */
+  width: 60%; /* Genişlik */
+  background-color: #e0e0e0; /* Yükleme için arka plan rengi */
+  border-radius: 0.375rem; /* Yuvarlatılmış köşeler */
+  margin-bottom: 0.5rem; /* Altına boşluk bırak */
+}
+
+/* Farklı genişliklerdeki metinler için */
+.skeleton-text-2 {
+  width: 80%; /* Daha geniş metin */
+}
+
+.skeleton-text-3 {
+  width: 40%; /* Daha kısa metin */
+}
+
+/* Skelet kısımlarının arasındaki boşluk */
+.space-y-3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Skelet öğe gruplarını saracak container */
+.skeleton-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Elemanlar arasında boşluk */
+}
+
+/* Skeleton animasyon */
+.skeleton-animation {
+  animation: skeleton-loading 1.5s infinite ease-in-out;
 }

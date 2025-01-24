@@ -26,11 +26,17 @@ export default async function Categories() {
   ];
 
   return (
-    <div className="categories">
+    <div className=" mt-40 flex flex-wrap gap-4 justify-center">
       {categories.map((category, index) => (
-        <Link href={encodeURI("categories/" + category).trim()} key={index} className="category">
-          <Image width={300} height={200} src={categoryImg[index]} alt={`${category} resmi`} />
-          <p>{category}</p>
+        <Link href={encodeURI("categories/" + category).trim()} key={index} className="category text-center w-40">
+          <Image
+            width={200}
+            height={200}
+            className="w-full h-40 object-cover rounded-md"
+            src={categoryImg[index]}
+            alt={`${category} resmi`}
+          />
+          <p className="mt-2 text-sm font-medium">{category}</p>
         </Link>
       ))}
     </div>

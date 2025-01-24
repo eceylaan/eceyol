@@ -6,17 +6,15 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import AddtoBasketBtn from "@/app/components/addtobasketbtn/addtobasket";
 
-export default function Page({ params }) {
+export default async function Page({ params }) {
   const router = useRouter();
   let category = decodeURI(params.category);
   if (category === "Ev %26 Yaşam") category = "Ev & Yaşam";
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const supabase = createClient();
 
   useEffect(() => {
     async function fetchProducts() {
-      setLoading(true);
       const { data, error } = await supabase.from("products").select("*").eq("category", category);
       console.log(category);
       if (error) {
@@ -24,7 +22,6 @@ export default function Page({ params }) {
       } else {
         setProducts(data || []);
       }
-      setLoading(false);
     }
     fetchProducts();
   }, [category]);
@@ -35,22 +32,17 @@ export default function Page({ params }) {
 
   return (
     <div className="product-page">
-      {loading ? (
-        <p>Yükleniyor...</p>
-      ) : products.length > 0 ? (
+      {products.length > 0 &&
         products.map((product) => (
           <div onClick={() => handleProductClick(product.id)} key={product.id} className="product">
             <div className="image-container">
-              <Image className="urunImg" width={280} height={200} src={"/assets/beige.jpg"} alt="ürün resmi" />
+              <Image className="urunImg rounded-lg" width={280} height={200} src={"/assets/beige.jpg"} alt="ürün resmi" />
             </div>
             <p>{product.product_name}</p>
             <p>{product.rating}</p>
             <AddtoBasketBtn />
           </div>
-        ))
-      ) : (
-        <p>Bu kategoriye ait ürün bulunamadı</p>
-      )}
+        ))}
     </div>
   );
 }

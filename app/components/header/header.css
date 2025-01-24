@@ -1,10 +1,12 @@
 .header {
-  max-width: 1200px;
+  padding-inline: 50px;
   display: flex;
-  justify-content: space-between;
+  gap: 70px;
+  margin-inline: auto;
+  justify-content: center;
 }
 
-.flex-row {
+.flexRow {
   display: flex;
   flex-direction: row;
   gap: 60px;
@@ -26,6 +28,7 @@
   gap: 4px;
   align-items: center;
   cursor: pointer;
+  width: 70px;
 }
 .login:hover {
   color: orange;

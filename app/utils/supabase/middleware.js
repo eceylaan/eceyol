@@ -20,31 +20,40 @@ export async function updateSession(request) {
       },
     },
   });
-  // no code here
+
+  // Do not run code between createServerClient and
+  // supabase.auth.getUser(). A simple mistake could make it very hard to debug
+  // issues with users being randomly logged out.
+
+  // IMPORTANT: DO NOT REMOVE auth.getUser()
+
   const {
-    data: { supabaseUser },
+    data: { user },
+    error,
   } = await supabase.auth.getUser();
-  let loggedInUser = {};
-  if (supabaseUser && supabaseUser.user_metadata.role === "client") {
-    // loggedInUser = await supabase.from("users").select("*").eq("user_id", supabaseUser.id);
-  } else if (supabaseUser) {
-    // loggedInUser = await supabase.from("sellers").select("*").eq("user_id", supabaseUser.id);
+  if (!user && !request.nextUrl.pathname.startsWith("/auth/login")) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/auth/login";
+    return NextResponse.redirect(url);
+  } else if (user && request.nextUrl.pathname.startsWith("/auth/login")) {
+    // Eğer kullanıcı zaten giriş yapmışsa, başka bir sayfaya yönlendir.
+    const url = request.nextUrl.clone();
+    url.pathname = "/dashboard"; // veya başka bir sayfa
+    return NextResponse.redirect(url);
   }
 
-  let permissionRoutes = [];
-  if (supabaseUser?.user_metadata.role === "client") {
-    permissionRoutes.push("/", "/about");
-  } else {
-    permissionRoutes.push("/dashboard");
-  }
-  // TODO : Ece - burada user kontrolleri gerçekleşecek ve buna gore rotalara gidilecek
+  // IMPORTANT: You *must* return the supabaseResponse object as it is.
+  // If you're creating a new response object with NextResponse.next() make sure to:
+  // 1. Pass the request in it, like so:
+  //    const myNewResponse = NextResponse.next({ request })
+  // 2. Copy over the cookies, like so:
+  //    myNewResponse.cookies.setAll(supabaseResponse.cookies.getAll())
+  // 3. Change the myNewResponse object to fit your needs, but avoid changing
+  //    the cookies!
+  // 4. Finally:
+  //    return myNewResponse
+  // If this is not done, you may be causing the browser and server to go out
+  // of sync and terminate the user's session prematurely!
 
-  // if (!supabaseUser && !request.nextUrl.pathname.startsWith("/auth/login") && !request.nextUrl.pathname.startsWith("/auth")) {
-  //   // no user, potentially respond by redirecting the user to the login page
-  //   const url = request.nextUrl.clone();
-  //   url.pathname = "/auth/login";
-  //   return NextResponse.redirect(url);
-  // }
-
-  return { supabaseResponse };
+  return supabaseResponse;
 }

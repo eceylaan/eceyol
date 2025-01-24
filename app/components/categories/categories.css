@@ -1,9 +1,9 @@
 .categories {
-  max-width: 1200px;
   display: flex;
   flex-direction: row;
   gap: 12px;
   margin-top: 160px;
+  margin-inline: auto;
 }
 
 .category Img {

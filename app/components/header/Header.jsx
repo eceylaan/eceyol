@@ -1,7 +1,7 @@
 import Basket from "./Basket";
 import Fav from "./fav";
 import "./header.css";
-import Login from "./Login";
+import LoginBtn from "./LoginBtn";
 import SearchBar from "./Searchbar";
 
 export default function Header() {
@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <div className="header">
-      <div className="flex-row">
+      <div className="flexRow">
         <h1>Trendyol</h1>
         <SearchBar />
 
@@ -27,8 +27,8 @@ export default function Header() {
           about
         </Link> */}
       </div>
-      <div className="flex-row">
-        <Login />
+      <div className="flexRow">
+        <LoginBtn />
         <Fav />
         <Basket />
       </div>

@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -15,6 +18,7 @@ body {
   line-height: 1.5;
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+  margin-inline: auto;
 }
 
 /* 5. Improve media defaults */
@@ -24,7 +28,7 @@ video,
 canvas,
 svg {
   display: block;
-  max-width: 100%;
+  width: 100%;
 }
 
 /* 6. Inherit fonts for form controls */
@@ -69,9 +73,10 @@ h6 {
 
 .mainContainer {
   margin-top: 20px;
-  max-width: 1200px;
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-inline: 50px;
+  margin-inline: auto;
 }
